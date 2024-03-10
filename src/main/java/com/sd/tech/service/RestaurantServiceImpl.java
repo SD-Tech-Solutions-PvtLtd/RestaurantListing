@@ -13,7 +13,10 @@ import org.springframework.web.client.HttpStatusCodeException;
 import com.sd.tech.entity.Restaurant;
 import com.sd.tech.repo.RestaurantRepo;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class RestaurantServiceImpl implements RestaurantService {
 	
 	@Autowired
@@ -35,6 +38,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 
 	@Override
 	public ResponseEntity<Restaurant> getRestaurantById(Integer id) {
+		log.info("getRestaurantById .. . "+id);
 		
 			 Optional<Restaurant> findById = restaurantRepo.findById(id);
 			 Restaurant restaurant = findById.get();
